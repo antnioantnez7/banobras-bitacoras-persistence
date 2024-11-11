@@ -205,6 +205,7 @@ namespace banobras_bitacoras_persistence.mx.gob.banobras.bitacoras.persistence.i
                             if (!string.IsNullOrEmpty(myEnvVar1))
                             {
                                 Console.WriteLine("DataSourceBitacora: " + myEnvVar1);
+                                acceso.respuestaOperacion = "DataSourceBitacora: " + myEnvVar1;
                             }
                             list.Add(acceso);
                         }
