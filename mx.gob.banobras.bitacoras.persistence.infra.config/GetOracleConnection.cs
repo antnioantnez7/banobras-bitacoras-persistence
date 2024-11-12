@@ -27,7 +27,10 @@ namespace banobras_bitacoras_persistence.mx.gob.banobras.bitacoras.persistence.i
         /// <returns></returns>
         public OracleConnection GetConnection(string source)
         {
-            var connectionString = new Utilerias().DesEncriptarPass(configuration.GetSection("ConnectionStrings").GetSection(source).Value!);
+            string dataSourceBitacora = Environment.GetEnvironmentVariable("DataSourceBitacora")!;
+            if (string.IsNullOrEmpty(dataSourceBitacora))
+                dataSourceBitacora = configuration.GetSection("ConnectionStrings").GetSection(source).Value!;
+            var connectionString = new Utilerias().DesEncriptarPass(dataSourceBitacora);
             var conn = new OracleConnection(connectionString);
             return conn;
         }

@@ -198,15 +198,6 @@ namespace banobras_bitacoras_persistence.mx.gob.banobras.bitacoras.persistence.i
                                 acceso.estatusOperacion = reader["ESTATUS_OPERACION"].ToString()!;
                             if (reader["RESPUESTA_OPERACION"] != DBNull.Value)
                                 acceso.respuestaOperacion = reader["RESPUESTA_OPERACION"].ToString()!;
-
-                            string myEnvVar1 = Environment.GetEnvironmentVariable("DataSourceBitacora");
-
-                            // Verificar si las variables existen y mostrarlas
-                            if (!string.IsNullOrEmpty(myEnvVar1))
-                            {
-                                Console.WriteLine("DataSourceBitacora: " + myEnvVar1);
-                                acceso.respuestaOperacion = "DataSourceBitacora: " + myEnvVar1;
-                            }
                             list.Add(acceso);
                         }
                         reader.Close();
